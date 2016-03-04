@@ -79,7 +79,7 @@ public class FileReadWriter {
 							System.out.printf("DEBUG: %-10d%-12s\n",
 									records.getScores(), records.getName());
 						}
-					
+
 					}
 				}
 			}
@@ -127,7 +127,7 @@ public class FileReadWriter {
 			System.out.printf("%d. %s ----> %d", i, myArr.get(i).getName(),
 					myArr.get(i).getScores());
 		}
-		
+
 		boolean evaluate=false;//new Evaluator().Asses();
 		if(evaluate){
 			Players temp1;
