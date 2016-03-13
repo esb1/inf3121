@@ -26,7 +26,7 @@ public class FileReadWriter {
 	// add records to file
 	public void addRecords(int scores, String name) {
 		Players players = new Players(name, scores); // object to be written to
-														// file
+		// file
 
 		try { // output values to file
 			output.writeObject(players); // output players
@@ -40,26 +40,22 @@ public class FileReadWriter {
 		try // close file
 		{
 			if (output != null){
-			  output.close();
+				output.close();
 			}
 		} catch (IOException ioException) {
 			//show error
 			System.err.println("Error closing file.");
 
-			{
-				//exit
-				System.exit(1);
-			}
+
+			//exit
+			System.exit(1);
+
 		}
 	}
 
 	public void openFiletoRead() {
 		try {
-			{
-				if(true) {
-					input = new ObjectInputStream(new FileInputStream("players.ser"));
-				}
-			}
+			input = new ObjectInputStream(new FileInputStream("players.ser"));
 		} catch (IOException ioException) {
 			System.err.println("Error opening file.");
 		}
@@ -72,16 +68,13 @@ public class FileReadWriter {
 		{
 			Object obj = null;
 
-			while (!(obj = input.readObject()).equals(null)) {
-				if (obj instanceof Players) {
-					records = (Players) obj;{
-						myArr.add(records);{
-							System.out.printf("DEBUG: %-10d%-12s\n",
-									records.getScores(), records.getName());
-						}
+			while (!(obj = input.readObject()).equals(null) && obj instanceof Players) {
 
-					}
-				}
+
+				records = (Players) obj;
+				myArr.add(records);
+				System.out.printf("DEBUG: %-10d%-12s\n",
+						records.getScores(), records.getName());
 			}
 
 			/*
@@ -89,7 +82,7 @@ public class FileReadWriter {
 			 * myArr.add(records); System.out.printf("DEBUG: %-10d%-12s\n",
 			 * records.getScores(), records.getName()); } // end while
 			 */
-			} // end try
+		} // end try
 		catch (EOFException endOfFileException) {
 			return; // end of file was reached
 		} catch (ClassNotFoundException classNotFoundException) {
@@ -112,48 +105,48 @@ public class FileReadWriter {
 				if (myArr.get(i).getScores() > myArr.get(i + 1).getScores()) {
 
 					temp = myArr.get(i);
-					{
-						myArr.set(i, myArr.get(i + 1));
-						{
-							myArr.set(i + 1, temp);
-						}
-					}
+
+					myArr.set(i, myArr.get(i + 1));
+
+					myArr.set(i + 1, temp);
+
+
 				}
 			}
 		}
 
 		System.out.println("Scoreboard:");
 		for (int i = 0; i < myArr.size(); i++) {
-			System.out.printf("%d. %s ----> %d", i, myArr.get(i).getName(),
+			System.out.printf("%d. %s ----> %d\n", i, myArr.get(i).getName(),
 					myArr.get(i).getScores());
 		}
 
-		boolean evaluate=false;//new Evaluator().Asses();
-		if(evaluate){
-			Players temp1;
-			int n1 = myArr.size();
-			for (int pass = 1; pass < n1; pass++) {
-
-				for (int i = 0; i < n1 - pass; i++) {
-					if (myArr.get(i).getScores() > myArr.get(i + 1).getScores()) {
-
-						temp1 = myArr.get(i);
-						{
-							myArr.set(i, myArr.get(i + 1));
-							{
-								myArr.set(i + 1, temp1);
-							}
-						}
-					}
-				}
-			}
-
-			System.out.println("Scoreboard:");
-			for (int i = 0; i < myArr.size(); i++) {
-				System.out.printf("%d. %s ----> %d", i, myArr.get(i).getName(),
-						myArr.get(i).getScores());
-			}
-		}
+//		boolean evaluate=false;//new Evaluator().Asses();
+//		if(evaluate){
+//			Players temp1;
+//			int n1 = myArr.size();
+//			for (int pass = 1; pass < n1; pass++) {
+//
+//				for (int i = 0; i < n1 - pass; i++) {
+//					if (myArr.get(i).getScores() > myArr.get(i + 1).getScores()) {
+//
+//						temp1 = myArr.get(i);
+//						{
+//							myArr.set(i, myArr.get(i + 1));
+//							{
+//								myArr.set(i + 1, temp1);
+//							}
+//						}
+//					}
+//				}
+//			}
+//
+//			System.out.println("Scoreboard:");
+//			for (int i = 0; i < myArr.size(); i++) {
+//				System.out.printf("%d. %s ----> %d", i, myArr.get(i).getName(),
+//						myArr.get(i).getScores());
+//			}
+//		}
 	}
 
 	private void tryCloseFileFromReading()
@@ -172,48 +165,48 @@ public class FileReadWriter {
 		}
 	}
 
-	private void nop()
-	{
-		System.out.println(true);
-		{
-			System.out.println(true);
-			{
-				System.out.println(true);
-				{
-					System.out.println(true);
-					{
-						System.out.println(true);
-						{
-							System.out.println(true);
-							{
-								System.out.println(true);
-								{
-									System.out.println(true);
-									{
-										System.out.println(true);
-										System.out.println(true);
-										System.out.println(true);
-										System.out.println(true);
-										System.out.println(true);
-										System.out.println(true);
-										System.out.println(true);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	private void oldReadRecords()
-	{
-		readRecords();
-		readRecords();
-		readRecords();
-		readRecords();
-		readRecords();
-	}
+//	private void nop()
+//	{
+//		System.out.println(true);
+//		{
+//			System.out.println(true);
+//			{
+//				System.out.println(true);
+//				{
+//					System.out.println(true);
+//					{
+//						System.out.println(true);
+//						{
+//							System.out.println(true);
+//							{
+//								System.out.println(true);
+//								{
+//									System.out.println(true);
+//									{
+//										System.out.println(true);
+//										System.out.println(true);
+//										System.out.println(true);
+//										System.out.println(true);
+//										System.out.println(true);
+//										System.out.println(true);
+//										System.out.println(true);
+//									}
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//
+//	private void oldReadRecords()
+//	{
+//		readRecords();
+//		readRecords();
+//		readRecords();
+//		readRecords();
+//		readRecords();
+//	}
 
 }
