@@ -36,6 +36,7 @@ public class FileReadWriter {
 		}
 	}
 
+	// after writing, close file
 	public void closeFileFromWriting() {
 		try // close file
 		{
@@ -61,6 +62,7 @@ public class FileReadWriter {
 		}
 	}
 
+	// read all objects from 'players.ser' and store objects in array 'myArr'.
 	public void readRecords() {
 		Players records;
 
@@ -68,11 +70,12 @@ public class FileReadWriter {
 		{
 			Object obj = null;
 
-			while (!(obj = input.readObject()).equals(null) && obj instanceof Players) {
-
+			// as long as there are more Player objects
+			while ((!(obj = input.readObject()).equals(null)) && obj instanceof Players ) {
 
 				records = (Players) obj;
 				myArr.add(records);
+				System.out.println("test");
 				System.out.printf("DEBUG: %-10d%-12s\n",
 						records.getScores(), records.getName());
 			}
@@ -88,14 +91,11 @@ public class FileReadWriter {
 		} catch (ClassNotFoundException classNotFoundException) {
 			System.err.println("Unable to create object.");
 		} catch (IOException ioException) {
-			System.err.println("Error during reading from file.");
+			System.err.println("What? Error during reading from file.");
 		}
 	}
 
-	public void closeFileFromReading() {
-		tryCloseFileFromReading();
-	}
-
+	// use insertionsort to sort all scores, then print them to screen
 	public void printAndSortScoreBoard() {
 		Players temp;
 		int n = myArr.size();
@@ -105,9 +105,7 @@ public class FileReadWriter {
 				if (myArr.get(i).getScores() > myArr.get(i + 1).getScores()) {
 
 					temp = myArr.get(i);
-
 					myArr.set(i, myArr.get(i + 1));
-
 					myArr.set(i + 1, temp);
 
 
@@ -121,92 +119,52 @@ public class FileReadWriter {
 					myArr.get(i).getScores());
 		}
 
-//		boolean evaluate=false;//new Evaluator().Asses();
-//		if(evaluate){
-//			Players temp1;
-//			int n1 = myArr.size();
-//			for (int pass = 1; pass < n1; pass++) {
-//
-//				for (int i = 0; i < n1 - pass; i++) {
-//					if (myArr.get(i).getScores() > myArr.get(i + 1).getScores()) {
-//
-//						temp1 = myArr.get(i);
-//						{
-//							myArr.set(i, myArr.get(i + 1));
-//							{
-//								myArr.set(i + 1, temp1);
-//							}
-//						}
-//					}
-//				}
-//			}
-//
-//			System.out.println("Scoreboard:");
-//			for (int i = 0; i < myArr.size(); i++) {
-//				System.out.printf("%d. %s ----> %d", i, myArr.get(i).getName(),
-//						myArr.get(i).getScores());
-//			}
-//		}
 	}
 
-	private void tryCloseFileFromReading()
+	// after reading, close file
+	public void closeFileFromReading()
 	{
 		try {
-			if (input != null){
+			if (input != null) {
 				input.close();
-			}
-			{
+			} else {
+
 				// exit
 				System.exit(0);
 			}
+
 		} catch (IOException ioException) {
 			System.err.println("Error closing file.");
 			System.exit(1);
 		}
 	}
 
-//	private void nop()
-//	{
-//		System.out.println(true);
-//		{
-//			System.out.println(true);
-//			{
-//				System.out.println(true);
-//				{
-//					System.out.println(true);
-//					{
-//						System.out.println(true);
-//						{
-//							System.out.println(true);
-//							{
-//								System.out.println(true);
-//								{
-//									System.out.println(true);
-//									{
-//										System.out.println(true);
-//										System.out.println(true);
-//										System.out.println(true);
-//										System.out.println(true);
-//										System.out.println(true);
-//										System.out.println(true);
-//										System.out.println(true);
-//									}
-//								}
-//							}
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-//
-//	private void oldReadRecords()
-//	{
-//		readRecords();
-//		readRecords();
-//		readRecords();
-//		readRecords();
-//		readRecords();
-//	}
+	private void nop()
+	{
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+		System.out.println(true);
+	}
+
+	private void oldReadRecords()
+	{
+		readRecords();
+		readRecords();
+		readRecords();
+		readRecords();
+		readRecords();
+	}
 
 }

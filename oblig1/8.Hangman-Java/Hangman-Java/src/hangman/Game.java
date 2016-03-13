@@ -13,6 +13,7 @@ public class Game {
 	private StringBuffer dashedWord;
 	private FileReadWriter filerw;
 
+    // Constructor, starting the game
 	public Game(boolean autoStart) {
 		guesWord = getRandWord();
 		dashedWord = getW(guesWord);
@@ -35,6 +36,8 @@ public class Game {
 
 		findLetterAndPrintIt();
 	}
+
+    // Method running the game.
 	private void findLetterAndPrintIt() {
 		boolean isHelpUsed = false;
 		String letter = "";
