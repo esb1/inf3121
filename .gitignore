@@ -1,5 +1,7 @@
 *.class
-
+PA1*
+*.png
+*.tiff
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
